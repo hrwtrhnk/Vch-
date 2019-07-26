@@ -1,0 +1,49 @@
+<!DOCCTYPE HTML>
+
+%header
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__home
+        %i.material-icons home
+      .main-header__left-box__search
+        %i.material-icons search
+    .main-header__center-box
+      .main-header__center-box__title Vch@
+    .main-header__right-box
+      .main-header__right-box__icon
+        = link_to edit_user_path(current_user) do
+          %i.material-icons account_circle
+      .main-header__right-box__nickname
+        = current_user.nickname
+
+%body
+  .left-contents
+    .contents.title
+      .title__text 男性VTuberの貴重な○○シーン
+    .contents.movie 
+      .movie__holder
+        %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "210", :src => "https://www.youtube.com/embed/YfQHCKe_phs", :width => "320", :padding => "20px"}
+    .contents.current-users
+      .each-user
+        .each-user__icon 🦇
+        .each-user__nickname コーサカ
+      .each-user
+        .each-user__icon 🐺
+        .each-user__nickname アンジョー
+
+  .right-contents
+    .chat 
+      .messages
+        .message 
+          .message__icon 👩
+          .message__text mzmは良いぞ
+        .message
+          .message__icon 👦
+          .message__text mzm最高
+      %form{:action => "/messages/new", :method => "post", :class => "form"}
+        %label{:for => "message", :class => "form__label"} 
+        %input#message{:name => "message", :type => "text", :class => "form__message"}
+        %input{:type => "submit", :value => "SEND", :class => "form__send-btn"}/
+
+
+

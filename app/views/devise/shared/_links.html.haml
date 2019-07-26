@@ -1,0 +1,6 @@
+- if controller_name != 'sessions'
+  = link_to raw("既存アカウントで<br/>ログイン"), new_session_path(resource_name), class: 'login-btn'
+  %br/
+- if devise_mapping.registerable? && controller_name != 'registrations'
+  = link_to raw("新規<br/>アカウント作成"), new_registration_path(resource_name), class: 'signup-btn'
+  %br/
