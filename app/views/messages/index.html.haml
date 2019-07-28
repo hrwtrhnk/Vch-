@@ -10,11 +10,17 @@
     .main-header__center-box
       .main-header__center-box__title Vch@
     .main-header__right-box
+    - if user_signed_in?
       .main-header__right-box__icon
         = link_to edit_user_path(current_user) do
           %i.material-icons account_circle
       .main-header__right-box__nickname
-        = current_user.nickname
+        = current_user.nickname 
+    - else
+      %a{ :href => '/users/sign_up', :class => "icon-for-signin"}
+        %i.material-icons account_circle　
+
+
 
 %body
   .left-contents
@@ -44,6 +50,3 @@
         %label{:for => "message", :class => "form__label"} 
         %input#message{:name => "message", :type => "text", :class => "form__message"}
         %input{:type => "submit", :value => "SEND", :class => "form__send-btn"}/
-
-
-
